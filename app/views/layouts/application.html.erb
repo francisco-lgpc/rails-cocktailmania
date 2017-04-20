@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>RailsMisterCocktail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="margin-small">
+      <%= link_to '/cocktails' do  %>
+        <%= image_tag 'cocktail-glass.png' %>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

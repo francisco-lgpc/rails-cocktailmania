@@ -1,0 +1,18 @@
+<h1><%= @cocktail.name %></h1>
+
+
+<% @cocktail.doses.each do |dose| %>
+  <ul class=list-inline>
+    <li><p> <%= "#{dose.ingredient.name} | #{dose.description}" %> </p></li>
+    <li>
+      <%= link_to 'delete', cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: 'Are you sure?' }  %>
+
+    </li>
+  </ul>
+
+
+<% end %>
+
+
+<%= render 'doses/form' %>
+

@@ -1,0 +1,26 @@
+<h1 class="text-center">Cocktails</h1>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to (cocktail) do %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://cdn.mode.com/files/15492f7092490ef482c3d4d1a5be2d0c/5z/M2P*yMJoo7N0SyVY5KUa8KUyOk-fq54akUVletZi-bdbWDYocvdoCmMeTvAvVyh41BLHZjI2RhiqEJ*DmuljduG2A34NA5*z/cocktail_bar.jpg');">
+            <div class="card-category"> <%= cocktail.name %> </div>
+            <div class="card-description"> <p> <%= cocktail.ingredients.map(&:name).join(', ') %> </p> </div>
+            <div class="card-user">
+              <%= link_to edit_cocktail_path(cocktail) do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn btn-info' %>
