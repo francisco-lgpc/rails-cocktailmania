@@ -81,17 +81,21 @@ end
 
 RANDOM_COCKTAIL_URL = "http://www.thecocktaildb.com/api/json/v1/1/random.php"
 
-20.times do
+100.times do
 
   cocktail_json = open(RANDOM_COCKTAIL_URL).read
   cocktail_parsed = JSON.parse(cocktail_json)
   cocktail_data = cocktail_parsed["drinks"].first
 
+  next if Cocktail.find_by_name(cocktail_data["strDrink"])
+
   c = Cocktail.create(name: cocktail_data["strDrink"], picture: cocktail_data["strDrinkThumb"])
   ing = nil
-  cocktail_data.select { |k, v| ing_key?(k, v)}.to_h.each_with_index do |(k, v), i|
-    ing = Ingredient.find_by_name(v) ? Ingredient.find_by_name(v) : Ingredient.create(name: v)
 
+  cocktail_data.select { |k, v| ing_key?(k, v)}.to_h.each_with_index do |(k, v), i|
+    next if v.nil?
+      ing = Ingredient.find_by_name(v) ? Ingredient.find_by_name(v) : Ingredient.create(name: v)
+    next if c.ingredients.include?(ing)
     c.ingredients << ing
 
     dose = Dose.find_by_ingredient_id_and_cocktail_id(ing.id, c.id)
