@@ -1,7 +1,7 @@
 <div class="container wrapper-show">
 
   <% if @cocktail.photo? %>
-    <%= picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + @cocktail.photo.path %>
+    <% picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + @cocktail.photo.path %>
   <% else %>
     <% picture_path = @cocktail.picture %>
   <% end %>
