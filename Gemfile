@@ -47,6 +47,13 @@ gem "autoprefixer-rails"
 # Security
 gem 'figaro'
 
+# Cloudinary
+gem 'cloudinary', '1.1.7'
+
+# Attahcinary set up
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

@@ -1,0 +1,36 @@
+form {
+  width: 95%;
+}
+
+.wrapper-show {
+  margin: 30px 100px;
+  padding: 50px;
+  background-color: $light-grey;
+  width: 65%;
+  border-radius: 40px;
+  box-shadow: 1px 1px 1px #AFB599;
+}
+
+.dose-display {
+  width: 95%;
+  margin: 0;
+  box-shadow: 1px 1px 1px #DCDCDC;
+}
+
+.wrapper-header {
+  width: 95%;
+  margin: 0;
+  position: relative;
+  img {
+    position: absolute;
+    left: 10px;
+  }
+
+  h1 {
+    position: absolute;
+    left: 400px;
+    top: 40px;
+  }
+}
+
+

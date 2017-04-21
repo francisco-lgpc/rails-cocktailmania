@@ -1,18 +1,58 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container wrapper-show">
+
+  <% if @cocktail.photo? %>
+    <%= picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + @cocktail.photo.path %>
+  <% else %>
+    <% picture_path = @cocktail.picture %>
+  <% end %>
+
+  <div class="wrapper-header">
+
+    <h1><%= @cocktail.name %></h1>
+
+    <%= image_tag(picture_path, width: 250, height: 250, class: 'img-circle') %>
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="container wrapper-grey dose-display rounded">
+    <div class="row">
+      <div class="col-xs-1"> <h3> <br> </h3> </div>
+      <div class="col-xs-4"> <h3> Ingredient </h3> </div>
+      <div class="col-xs-7"> <h3> Amount </h3> </div>
+    </div>
+      <% @cocktail.doses.each do |dose| %>
+        <div class="row">
+          <div class="col-xs-1">
+            <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa fa-minus red-minus"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-4"> <%= dose.ingredient.name %> </div>
+          <div class="col-xs-7"> <%= dose.description %> </div>
+        </div>
+      <% end %>
+    <br>
+  </div>
+  <br>
 
 
-<% @cocktail.doses.each do |dose| %>
-  <ul class=list-inline>
-    <li><p> <%= "#{dose.ingredient.name} | #{dose.description}" %> </p></li>
-    <li>
-      <%= link_to 'delete', cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: 'Are you sure?' }  %>
 
-    </li>
-  </ul>
+  <%= render 'doses/form', locals: { action: 'Add' } %>
 
-
-<% end %>
-
-
-<%= render 'doses/form' %>
-
+</div>

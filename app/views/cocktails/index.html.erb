@@ -4,9 +4,16 @@
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
+      <% if cocktail.photo? %>
+        <% picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + cocktail.photo.path %>
+      <% else %>
+        <% picture_path = cocktail.picture %>
+      <% end %>
+
       <%= link_to (cocktail) do %>
         <div class="col-xs-12 col-sm-6 col-lg-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= cocktail.picture %> );">
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
             <div class="card-category"> <%= cocktail.name %> </div>
             <div class="card-description"> <p> <%= cocktail.ingredients.map(&:name).join(', ') %> </p> </div>
             <div class="card-user">
@@ -19,8 +26,11 @@
       <% end %>
     <% end %>
   </div>
+  <div class="row">
+    <%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn btn-info margin-small' %>
+  </div>
 </div>
 
 
 
-<%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn btn-info' %>
+
