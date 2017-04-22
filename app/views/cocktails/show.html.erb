@@ -7,34 +7,26 @@
   <% end %>
 
   <div class="wrapper-header">
-
-    <h1><%= @cocktail.name %></h1>
-
-    <%= image_tag(picture_path, width: 250, height: 250, class: 'img-circle') %>
-
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="wrapper-title">
+            <h1><%= @cocktail.name %></h1>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
+          </div>
+        </div>
+      </div>
   </div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <br><br>
 
   <div class="container wrapper-grey dose-display rounded">
     <div class="row">
       <div class="col-xs-1"> <h3> <br> </h3> </div>
       <div class="col-xs-4"> <h3> Ingredient </h3> </div>
-      <div class="col-xs-7"> <h3> Amount </h3> </div>
+      <div class="col-xs-4"> <h3> Amount </h3> </div>
     </div>
       <% @cocktail.doses.each do |dose| %>
         <div class="row">
@@ -44,13 +36,12 @@
             <% end %>
           </div>
           <div class="col-xs-4"> <%= dose.ingredient.name %> </div>
-          <div class="col-xs-7"> <%= dose.description %> </div>
+          <div class="col-xs-4"> <%= dose.description %> </div>
         </div>
       <% end %>
     <br>
   </div>
   <br>
-
 
 
   <%= render 'doses/form', locals: { action: 'Add' } %>

@@ -1,9 +1,10 @@
 form {
   width: 95%;
+  margin: auto;
 }
 
 .wrapper-show {
-  margin: 30px 100px;
+  margin: 50px auto;
   padding: 50px;
   background-color: $light-grey;
   width: 65%;
@@ -13,24 +14,23 @@ form {
 
 .dose-display {
   width: 95%;
-  margin: 0;
+  margin: auto;
   box-shadow: 1px 1px 1px #DCDCDC;
 }
 
-.wrapper-header {
-  width: 95%;
-  margin: 0;
-  position: relative;
-  img {
-    position: absolute;
-    left: 10px;
+.form-inline-button {
+  margin-top: 25px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: visible;
+  outline:none;
   }
 
-  h1 {
-    position: absolute;
-    left: 400px;
-    top: 40px;
-  }
+
+.fa.fa-plus {
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
-
-

@@ -1,7 +1,12 @@
-<h1 class="text-center">Cocktails</h1>
+<h1 class="text-center title">Cocktailmania</h1>
 <br>
 <br>
 <div class="container">
+  <div class="row">
+    <div class="text-center">
+      <%= link_to 'Add Your Own Cocktail', new_cocktail_path, class: 'btn btn-info btn-large margin-small' %>
+    </div>
+  </div>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <% if cocktail.photo? %>
@@ -25,9 +30,6 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-  <div class="row">
-    <%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn btn-info margin-small' %>
   </div>
 </div>
 

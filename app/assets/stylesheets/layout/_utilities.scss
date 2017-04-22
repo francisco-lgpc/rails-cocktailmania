@@ -24,18 +24,32 @@
   background: #3b5998;
 }
 
+// Margins
 .margin-small {
   margin: 20px;
 }
 
-.red-minus {
-    color: #B82234;
+.margin-small-horizontal {
+  margin: 0 20px;
 }
 
+
+// Font Awesome
+.red-minus {
+  color: #B82234;
+}
+
+// Wrappers
 .wrapper-grey {
   background-color: $very-light-grey;
 }
 
+// Other
 .rounded {
   border-radius: 10px;
+}
+
+// Buttons
+.btn-large {
+  font-size: 200%;
 }

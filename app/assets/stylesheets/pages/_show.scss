@@ -1,0 +1,20 @@
+.wrapper-show {
+  margin: 50px auto;
+  padding: 50px;
+  background-color: $light-grey;
+  width: 65%;
+  border-radius: 40px;
+  box-shadow: 1px 1px 1px #AFB599;
+  @media (max-width: 760px) {
+    h3 {
+      font-size: 20px;
+    }
+    font-size: 13px;
+  }
+}
+
+.dose-display {
+  width: 95%;
+  margin: auto;
+  box-shadow: 1px 1px 1px #DCDCDC;
+}

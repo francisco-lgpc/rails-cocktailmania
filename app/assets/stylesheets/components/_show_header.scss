@@ -1,0 +1,34 @@
+.wrapper-header {
+  width: 95%;
+  margin: auto;
+  position: relative;
+  .wrapper-img {
+    height: auto;
+    width: 80%;
+    min-width: 100px;
+    position: relative;
+
+    border-radius: 50%;
+    background-size: cover !important;
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+
+    @media (max-width: 760px) {
+      margin: auto;
+      width: 60%
+    }
+  }
+  .wrapper-title {
+    h1 {
+      font-size: 60px;
+      @media (max-width: 760px) {
+        font-size: 45px;
+        text-align: center;
+      }
+    }
+  }
+}
+

@@ -1,6 +1,14 @@
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
 
-  <%= f.submit "add a dose", class: "btn btn-primary" %>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <br>
+  <h3>Add New Ingredients</h3>
+  <br><br>
+
+  <%= button_tag class: "col-xs-1 form-inline-button" do %>
+    <i class="fa fa-plus"></i>
+  <% end %>
+
+  <%= f.association :ingredient, wrapper_html: { class: 'col-xs-4' } %>
+  <%= f.input :description, label: 'Amount', wrapper_html: { class: 'col-xs-4' } %>
+
 <% end %>
