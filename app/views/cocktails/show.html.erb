@@ -1,56 +1,66 @@
-<div class="container wrapper-show">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-8">
+      <div class="wrapper-show">
+        <% if @cocktail.photo? %>
+          <% picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + @cocktail.photo.path %>
+        <% else %>
+          <% picture_path = @cocktail.picture %>
+        <% end %>
 
-  <% if @cocktail.photo? %>
-    <% picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + @cocktail.photo.path %>
-  <% else %>
-    <% picture_path = @cocktail.picture %>
-  <% end %>
-
-  <div class="wrapper-edit-link">
-    <%= link_to edit_cocktail_path(@cocktail) do %>
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-    <% end %>
-  </div>
-
-
-  <div class="wrapper-header">
-    <div class="row">
-      <div class="col-xs-4">
-        <div class="wrapper-title">
-          <h1><%= @cocktail.name %></h1>
+        <div class="wrapper-edit-link">
+          <%= link_to edit_cocktail_path(@cocktail) do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
         </div>
-      </div>
-      <div class="col-xs-8">
-        <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <br><br>
 
-  <div class="container wrapper-grey dose-display rounded">
-    <div class="row">
-      <div class="col-xs-1"> <h3> <br> </h3> </div>
-      <div class="col-xs-4"> <h3> Ingredient </h3> </div>
-      <div class="col-xs-4"> <h3> Amount </h3> </div>
-    </div>
-      <% @cocktail.doses.each do |dose| %>
-        <div class="row">
-          <div class="col-xs-1">
-            <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="fa fa-minus red-minus"></i>
-            <% end %>
+        <div class="wrapper-header">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="wrapper-title">
+                <h1><%= @cocktail.name %></h1>
+              </div>
+            </div>
+            <div class="col-xs-8">
+              <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
+              </div>
+            </div>
           </div>
-          <div class="col-xs-4"> <%= dose.ingredient.name %> </div>
-          <div class="col-xs-4"> <%= dose.description %> </div>
         </div>
-      <% end %>
-    <br>
+
+        <br><br>
+
+        <div class="container wrapper-grey dose-display rounded">
+          <div class="row">
+            <div class="col-xs-1"> <h3> <br> </h3> </div>
+            <div class="col-xs-4"> <h3> Ingredient </h3> </div>
+            <div class="col-xs-4"> <h3> Amount </h3> </div>
+          </div>
+            <% @cocktail.doses.each do |dose| %>
+              <div class="row">
+                <div class="col-xs-1">
+                  <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class="fa fa-minus red-minus"></i>
+                  <% end %>
+                </div>
+                <div class="col-xs-4"> <%= dose.ingredient.name %> </div>
+                <div class="col-xs-4"> <%= dose.description %> </div>
+              </div>
+            <% end %>
+          <br>
+        </div>
+        <br>
+        <div class="hidden-lg">
+          <%= render 'doses/form' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-4 visible-lg">
+      <div class="wrapper-show show-lg">
+        <%= render 'doses/form' %>
+      </div>
+    </div>
   </div>
-  <br>
-
-
-  <%= render 'doses/form' %>
 
 </div>

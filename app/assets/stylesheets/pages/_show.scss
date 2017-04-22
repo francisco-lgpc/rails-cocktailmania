@@ -3,11 +3,12 @@
   margin: 50px auto;
   padding: 50px;
   background-color: $light-grey;
-  width: 65%;
-  @media (max-width: 900px) {
+  width: 80%;
+
+  @media (min-width: 1200px) {
     margin: 20px auto;
     padding: 30px;
-    width: 80%
+    width: 95%
   }
 
   @media (max-width: 650px) {
@@ -42,5 +43,11 @@
   @media (max-width: 900px) {
     right: 20px;
     top: 20px;
+  }
+}
+
+.show-lg {
+  h3 {
+    margin-top: 0;
   }
 }

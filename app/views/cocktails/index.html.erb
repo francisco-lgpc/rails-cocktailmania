@@ -25,6 +25,14 @@
           <% end %>
         </div>
     <% end %>
+    <% if @cocktails.empty? %>
+      <div class="text-center">
+        <h2>Unfortunately we did not find your cocktail.</h2>
+        <h2>Please try again.</h2>
+        <br>
+        <%= render "/shared/search" %>
+      </div>
+    <% end %>
   </div>
 </div>
 

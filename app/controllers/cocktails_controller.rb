@@ -33,6 +33,16 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def search
+    @cocktails = Cocktail.where(name: params[:query].capitalize)
+    if @cocktails.empty?
+      ingredients = Ingredient.where(name: params[:query].capitalize)
+
+      @cocktails = Cocktail.all.reject { |c| c.ingredients - ingredients == c.ingredients }
+    end
+    render :index
+  end
+
   private
 
   def set_cocktail

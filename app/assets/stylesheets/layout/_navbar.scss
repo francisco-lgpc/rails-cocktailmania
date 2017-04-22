@@ -1,13 +1,17 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: black;
+  color: white;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+  &:hover {
+    color:white;
+  }
 }
 
 /* Optional class to fix the navbar on top */
@@ -20,8 +24,14 @@
 }
 
 /* Navbar logo */
-.navbar-wagon-brand img {
-  width: 50px;
+.navbar-wagon-brand {
+  color: white;
+  .fa- {
+    color: white;
+  }
+  img {
+    width: 50px;
+  }
 }
 
 /* Navbar right section (with form, links, button) */
@@ -75,7 +85,7 @@
 }
 .navbar-wagon-search-btn {
   line-height: 40px;
-  color: #E6E6E6;
+  color: black;
   border: none;
   background: transparent;
   position: absolute;
@@ -88,15 +98,18 @@
   transition: all 0.15s ease;
   line-height: 40px;
   font-weight: lighter;
-  color: #666666;
+  color: black;
   border: 1px solid #E6E6E6;
   border-radius: 5px;
   padding: 0 10px;
   font-size: 14px;
   outline: none;
+  opacity: 0.7;
 }
 .navbar-wagon-search-input:focus  {
   border: 1px solid #CCCCCC;
+  opacity: 1;
+  color: #666666;
 }
 
 /* Navbar dropdown menu */
@@ -128,4 +141,16 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+
+// for logo and name
+.navbar-wagon-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:hover {
+    color: white;
+    opacity: 0.9;
+  }
 }

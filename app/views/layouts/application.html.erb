@@ -15,11 +15,7 @@
   </head>
 
   <body>
-
-    <%= link_to '/cocktails' do  %>
-      <%= image_tag 'cocktail-glass.png', class: 'margin-small' %>
-    <% end %>
-
+    <%= render '/layouts/navbar' %>
     <div class="wrapper-body">
       <%= yield %>
     </div>

@@ -1,0 +1,24 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <%= link_to '/cocktails', class: "navbar-wagon-brand" do  %>
+    <div class="navbar-wagon-left">
+      <%= image_tag 'cocktail-glass.png' %>
+      <h1 class="navbar-wagon-item">Cocktailmania</h1>
+    </div>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Search form -->
+    <form action="/cocktails/search" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search something" name="query">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+  </div>
+
+
+</div>
+
