@@ -8,6 +8,13 @@
     padding: 30px;
     width: 80%
   }
+
+  @media (max-width: 650px) {
+    margin: 10px auto;
+    padding: 15px;
+    width: 95%
+  }
+
   border-radius: 40px;
   box-shadow: 1px 1px 1px #AFB599;
   @media (max-width: 900px) {
