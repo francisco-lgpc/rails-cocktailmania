@@ -24,3 +24,25 @@ h1.title {
     font-size: 80px;
   }
 }
+
+
+.wrapper-btn-large {
+  height: 100px;
+  position: relative;
+
+
+  .btn-large {
+  position: absolute;
+  top: 0;
+  left: 37%;
+
+    margin-bottom: 20px;
+
+
+    transition: 0.3s ease;
+    &:hover {
+      font-size: 230%;
+      margin-bottom: 14px;
+    }
+  }
+}
