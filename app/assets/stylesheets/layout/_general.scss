@@ -10,4 +10,14 @@ body {
 
 h1.title {
   font-size: 200px;
+  @media (max-width: 1000px) {
+    font-size: 150px;
+  }
+  @media (max-width: 700px) {
+    font-size: 120px;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 100px;
+  }
 }
