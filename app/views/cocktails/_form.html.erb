@@ -1,5 +1,32 @@
 <div class="wrapper-show">
-  <h1>  <%= action %> a Cocktail</h1>
+  <% case %>
+  <% when action == "Edit" %>
+
+    <% if @cocktail.photo? %>
+      <% picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + @cocktail.photo.path %>
+    <% else %>
+      <% picture_path = @cocktail.picture %>
+    <% end %>
+    <div class="wrapper-header">
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="wrapper-title">
+            <h1> <%= cocktail %> </h1>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% when action == 'Add' %>
+
+    <h1> <%= action + " " + cocktail %> </h1>
+
+  <% end %>
+
   <br><br>
   <%= simple_form_for @cocktail do |f| %>
     <%= f.input :name %>

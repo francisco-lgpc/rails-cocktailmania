@@ -3,9 +3,14 @@
   padding: 50px;
   background-color: $light-grey;
   width: 65%;
+  @media (max-width: 900px) {
+    margin: 20px auto;
+    padding: 30px;
+    width: 80%
+  }
   border-radius: 40px;
   box-shadow: 1px 1px 1px #AFB599;
-  @media (max-width: 760px) {
+  @media (max-width: 900px) {
     h3 {
       font-size: 20px;
     }
@@ -15,6 +20,9 @@
 
 .dose-display {
   width: 95%;
+  @media (max-width: 900px) {
+    width: 100%
+  }
   margin: auto;
   box-shadow: 1px 1px 1px #DCDCDC;
 }

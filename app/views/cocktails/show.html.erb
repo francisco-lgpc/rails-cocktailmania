@@ -7,17 +7,17 @@
   <% end %>
 
   <div class="wrapper-header">
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="wrapper-title">
-            <h1><%= @cocktail.name %></h1>
-          </div>
-        </div>
-        <div class="col-xs-8">
-          <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
-          </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="wrapper-title">
+          <h1><%= @cocktail.name %></h1>
         </div>
       </div>
+      <div class="col-xs-8">
+        <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
+        </div>
+      </div>
+    </div>
   </div>
 
   <br><br>
@@ -44,6 +44,6 @@
   <br>
 
 
-  <%= render 'doses/form', locals: { action: 'Add' } %>
+  <%= render 'doses/form' %>
 
 </div>

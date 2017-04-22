@@ -1,5 +1,8 @@
 .wrapper-header {
   width: 95%;
+  @media (max-width: 900px) {
+    width: 100%
+  }
   margin: auto;
   position: relative;
   .wrapper-img {
@@ -16,7 +19,7 @@
       padding-top: 100%;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 900px) {
       margin: auto;
       width: 60%
     }
@@ -24,7 +27,7 @@
   .wrapper-title {
     h1 {
       font-size: 60px;
-      @media (max-width: 760px) {
+      @media (max-width: 900px) {
         font-size: 45px;
         text-align: center;
       }

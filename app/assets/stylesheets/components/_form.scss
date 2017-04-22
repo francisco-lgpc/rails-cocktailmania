@@ -1,21 +1,13 @@
 form {
   width: 95%;
+  @media (max-width: 900px) {
+    width: 100%
+  }
   margin: auto;
-}
 
-.wrapper-show {
-  margin: 50px auto;
-  padding: 50px;
-  background-color: $light-grey;
-  width: 65%;
-  border-radius: 40px;
-  box-shadow: 1px 1px 1px #AFB599;
-}
-
-.dose-display {
-  width: 95%;
-  margin: auto;
-  box-shadow: 1px 1px 1px #DCDCDC;
+  .form-control {
+    min-width: 80px;
+  }
 }
 
 .form-inline-button {
@@ -26,7 +18,7 @@ form {
   cursor:pointer;
   overflow: visible;
   outline:none;
-  }
+}
 
 
 .fa.fa-plus {
