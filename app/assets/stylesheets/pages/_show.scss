@@ -1,4 +1,5 @@
 .wrapper-show {
+  position: relative;
   margin: 50px auto;
   padding: 50px;
   background-color: $light-grey;
@@ -32,4 +33,14 @@
   }
   margin: auto;
   box-shadow: 1px 1px 1px #DCDCDC;
+}
+
+.wrapper-edit-link {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  @media (max-width: 900px) {
+    right: 20px;
+    top: 20px;
+  }
 }

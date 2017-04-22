@@ -1,0 +1,28 @@
+
+.wrapper-btn-large {
+  height: 90px;
+  background-color: black;
+  width:300px;
+  transition: 0.4s ease;
+  margin: auto;
+  border-radius: 4px;
+  line-height: 90px;
+  opacity:0.9;
+
+  .btn-large {
+    margin-top: 10px;
+    padding: 20px 30px;
+    font-size: 28px;
+    transition: 0.2s ease;
+    color: white;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    opacity:1;
+    & .btn-large{
+      font-size: 30px;
+      text-shadow: 0.5px -0.5px 1px $very-light-grey;
+    }
+  }
+}

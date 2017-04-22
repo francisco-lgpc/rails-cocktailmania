@@ -6,6 +6,13 @@
     <% picture_path = @cocktail.picture %>
   <% end %>
 
+  <div class="wrapper-edit-link">
+    <%= link_to edit_cocktail_path(@cocktail) do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
+  </div>
+
+
   <div class="wrapper-header">
     <div class="row">
       <div class="col-xs-4">

@@ -1,12 +1,12 @@
 <h1 class="text-center title">Cocktailmania</h1>
-<br>
-<br>
+<br><br>
 <div class="container">
   <div class="row">
     <div class="wrapper-btn-large text-center">
-      <%= link_to 'Add Your Own Cocktail', new_cocktail_path, class: 'btn btn-info btn-large margin-small' %>
+      <%= link_to 'Add Your Own Cocktail', new_cocktail_path, class: 'btn-large' %>
     </div>
   </div>
+  <br><br>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <% if cocktail.photo? %>
@@ -14,21 +14,16 @@
       <% else %>
         <% picture_path = cocktail.picture %>
       <% end %>
-
-      <%= link_to (cocktail) do %>
         <div class="col-xs-12 col-sm-6 col-lg-4">
-
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
             <div class="card-category"> <%= cocktail.name %> </div>
             <div class="card-description"> <p> <%= cocktail.ingredients.map(&:name).join(', ') %> </p> </div>
-            <div class="card-user">
-              <%= link_to edit_cocktail_path(cocktail) do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              <% end %>
-            </div>
+            <div class="card-user"></div>
           </div>
+          <%= link_to (cocktail) do %>
+            <div class="card-link"></div>
+          <% end %>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>
