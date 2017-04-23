@@ -42,12 +42,10 @@ class CocktailsController < ApplicationController
     if params[:query] == ""
       @cocktails = @cocktails = Cocktail.where.not(picture: nil)
     else
-      @cocktails = Cocktail.where(name: params[:query].split.map(&:capitalize).join(' '))
-      if @cocktails.empty?
-        ingredients = Ingredient.where(name: params[:query].capitalize)
-
-        @cocktails = Cocktail.all.reject { |c| c.ingredients - ingredients == c.ingredients }
-      end
+      @cocktails = Cocktail.where("name LIKE ?", "%#{params[:query].split.map(&:capitalize).join(' ')}%")
+      ingredients = Ingredient.where("name LIKE ?", "%#{params[:query]}%")
+      ingredients += Ingredient.where("name LIKE ?", "%#{params[:query].capitalize}%")
+      @cocktails += Cocktail.all.reject { |c| c.ingredients - ingredients == c.ingredients }
     end
     render :index
   end
