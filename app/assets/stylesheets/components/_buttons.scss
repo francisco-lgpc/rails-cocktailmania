@@ -8,11 +8,20 @@
   border-radius: 4px;
   line-height: 90px;
   opacity:0.6;
+  @media (max-width: 800px) {
+    height: 60px;
+    line-height: 60px;
+    width:230px;
+  }
 
   .btn-large {
     margin-top: 10px;
     padding: 20px 30px;
     font-size: 28px;
+    @media (max-width: 800px) {
+      font-size: 22px;
+    }
+
     transition: 0.2s ease;
     color: white;
     vertical-align: middle;
@@ -23,6 +32,9 @@
     & .btn-large{
       font-size: 30px;
       text-shadow: 0.5px -0.5px 1px $very-light-grey;
+      @media (max-width: 800px) {
+        font-size: 24px;
+      }
     }
   }
 }
