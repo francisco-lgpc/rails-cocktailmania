@@ -18,6 +18,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.name = params[:query].split.map(&:capitalize).join(' ') if @cocktail.name
     @cocktail.picture = "" if @cocktail.photo?
     if @cocktail.save
       redirect_to @cocktail, notice: 'cocktail was successfully created.'
