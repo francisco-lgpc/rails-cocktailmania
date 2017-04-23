@@ -1,38 +1,67 @@
-<div class="wrapper-show">
-  <% case %>
-  <% when action == "Edit" %>
 
-    <% if @cocktail.photo? %>
-      <% picture_path = "http://res.cloudinary.com/dkf3v0a5c/image/upload/" + @cocktail.photo.path %>
-    <% else %>
-      <% picture_path = @cocktail.picture %>
-    <% end %>
-    <div class="wrapper-header">
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="wrapper-title">
-            <h1> <%= cocktail %> </h1>
+
+<div class="col-md-12 col-lg-6">
+  <div class="wrapper-show">
+
+    <% case %>
+    <% when action == "Edit" %>
+
+      <% if @cocktail.photo? %>
+        <% picture_path = "http://res.cloudinary.com/dkf3v0a5c/image/upload/" + @cocktail.photo.path %>
+      <% else %>
+        <% picture_path = @cocktail.picture %>
+      <% end %>
+
+      <div class="wrapper-header">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="wrapper-title">
+              <h1> <%= cocktail %> </h1>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-8">
-          <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
+          <div class="col-xs-8">
+            <div class="wrapper-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= picture_path %> );">
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-  <% when action == 'Add' %>
+    <% when action == 'Add' %>
 
-    <h1> <%= action + " " + cocktail %> </h1>
+      <h1> <%= action + " " + cocktail %> </h1>
 
-  <% end %>
+    <% end %>
 
-  <br><br>
-  <%= simple_form_for @cocktail do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :attachinary %>
+  <div class="visible-lg">
+    <%= render 'doses/form' %>
+  </div>
 
-    <%= f.submit "submit", class: "btn btn-primary" %>
-  <% end %>
 
+  </div>
+
+  <div class="wrapper-show hidden-lg">
+    <br><br>
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :attachinary %>
+
+      <%= f.submit "submit", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<div class="col-lg-6 visible-lg">
+  <div class="wrapper-show">
+
+    <br><br>
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :attachinary %>
+
+      <%= f.submit "submit", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
 </div>
