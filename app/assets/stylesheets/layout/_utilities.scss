@@ -33,6 +33,10 @@
   margin: 0 20px;
 }
 
+.margin-medium-horizontal {
+  margin: 0 50px;
+}
+
 
 // Font Awesome
 .red-minus {
@@ -47,4 +51,8 @@
 // Other
 .rounded {
   border-radius: 10px;
+}
+
+.see-through {
+  opacity: 0.8;
 }

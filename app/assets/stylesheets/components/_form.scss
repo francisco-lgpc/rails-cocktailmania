@@ -10,10 +10,23 @@ form {
     max-width: 600px;
   }
   padding-bottom: 70px;
+
+}
+
+
+#new_dose {
+  width: 100%;
+  margin: 0 -15px;
+
+  .form-input-new-dose {
+    opacity: 0.7;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+  }
 }
 
 .form-inline-button {
-  margin-top: 25px;
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
@@ -28,3 +41,4 @@ form {
   top: 15px;
   left: 15px;
 }
+

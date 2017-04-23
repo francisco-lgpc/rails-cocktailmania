@@ -5,12 +5,6 @@
   background-color: $light-grey;
   width: 80%;
 
-  @media (min-width: 1200px) {
-    margin: 20px auto;
-    padding: 30px;
-    width: 95%
-  }
-
   @media (max-width: 650px) {
     margin: 10px auto;
     padding: 15px;

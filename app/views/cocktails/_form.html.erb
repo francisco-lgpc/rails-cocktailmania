@@ -1,6 +1,6 @@
 
 
-<div class="col-md-12 col-lg-6">
+<div class="col-md-12">
   <div class="wrapper-show">
 
     <% case %>
@@ -26,24 +26,13 @@
         </div>
       </div>
 
-      <div class="visible-lg">
-        <%= render 'doses/form' %>
-      </div>
-
-
     <% when action == 'Add' %>
 
       <h1> <%= action + " " + cocktail %> </h1>
-      <br>
       <%= image_tag 'cocktail-glass-original.png' %>
 
     <% end %>
 
-
-
-  </div>
-
-  <div class="wrapper-show hidden-lg">
     <br><br>
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
@@ -52,20 +41,11 @@
       <%= f.submit "submit", class: "btn btn-primary" %>
     <% end %>
 
-  </div>
-</div>
-
-
-<div class="col-lg-6 visible-lg">
-  <div class="wrapper-show">
-
-    <br><br>
-    <%= simple_form_for @cocktail do |f| %>
-      <%= f.input :name %>
-      <%= f.input :photo, as: :attachinary %>
-
-      <%= f.submit "submit", class: "btn btn-primary" %>
-    <% end %>
+    <div class="margin-medium-horizontal">
+      <%= render 'doses/form' if action == 'Edit' %>
+    </div>
 
   </div>
 </div>
+
+
