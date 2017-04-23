@@ -7,7 +7,7 @@
   margin: auto;
   border-radius: 4px;
   line-height: 90px;
-  opacity:0.9;
+  opacity:0.6;
 
   .btn-large {
     margin-top: 10px;
@@ -19,7 +19,7 @@
   }
 
   &:hover {
-    opacity:1;
+    opacity:0.8;
     & .btn-large{
       font-size: 30px;
       text-shadow: 0.5px -0.5px 1px $very-light-grey;

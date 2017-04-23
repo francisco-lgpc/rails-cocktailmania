@@ -1,12 +1,38 @@
-<h1 class="text-center title">Cocktailmania</h1>
-<br><br>
-<div class="container">
-  <div class="row">
-    <div class="wrapper-btn-large text-center">
-      <%= link_to 'Add Your Own Cocktail', new_cocktail_path, class: 'btn-large' %>
+
+<% unless @search %>
+
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'mojito-cocktail-drink-for-desktop.jpg' %>);">
+    <div class="banner-content">
+      <%= link_to '/cocktails/search?query=' do %>
+        <h1 class="text-center title">Cocktailmania</h1>
+      <% end %>
+      <br><br>
+
+      <div class="wrapper-btn-large text-center">
+        <%= link_to 'Add Your Own Cocktail', new_cocktail_path, class: 'btn-large' %>
+      </div>
+      <br><br><br>
+
+      <form action="/cocktails/search" class="form-inline hidden-xs">
+        <input type="text" placeholder="Search by name or ingredient" name="query" class="form-control input">
+        <button type="submit" class="form-control btn-search">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+
+      <form action="/cocktails/search" class="form-inline visible-xs">
+        <input type="text" placeholder="Search by name or ingredient" name="query" class="form-control input">
+      </form>
+
+
     </div>
   </div>
-  <br><br>
+
+<% end %>
+
+
+<br><br>
+<div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <% next unless cocktail.photo? || cocktail.picture %>

@@ -1,0 +1,72 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+
+  h1.title {
+    font-size: 200px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    color: white;
+    opacity: 0.8;
+
+    @media (max-width: 1000px) {
+      font-size: 150px;
+    }
+    @media (max-width: 700px) {
+      font-size: 120px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 100px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 80px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+
+    background-color: black;
+    border: none;
+    height: 50px;
+    &.btn-search {
+      opacity: 0.8;
+      width: 50px;
+      transition: 0.3s ease;
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &.input {
+      opacity: 0.6;
+      font-size: 25px;
+      width: 60%;
+      color: white;
+      margin:auto;
+
+      &:focus {
+        background-color: white;
+        color: $grey;
+        opacity: 0.5;
+      }
+    }
+
+  }
+
+}

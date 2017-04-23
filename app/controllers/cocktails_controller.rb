@@ -38,11 +38,16 @@ class CocktailsController < ApplicationController
   end
 
   def search
-    @cocktails = Cocktail.where(name: params[:query].split.map(&:capitalize).join(' '))
-    if @cocktails.empty?
-      ingredients = Ingredient.where(name: params[:query].capitalize)
+    @search = true
+    if params[:query] == ""
+      @cocktails = @cocktails = Cocktail.where.not(picture: nil)
+    else
+      @cocktails = Cocktail.where(name: params[:query].split.map(&:capitalize).join(' '))
+      if @cocktails.empty?
+        ingredients = Ingredient.where(name: params[:query].capitalize)
 
-      @cocktails = Cocktail.all.reject { |c| c.ingredients - ingredients == c.ingredients }
+        @cocktails = Cocktail.all.reject { |c| c.ingredients - ingredients == c.ingredients }
+      end
     end
     render :index
   end
