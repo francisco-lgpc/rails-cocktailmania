@@ -26,15 +26,19 @@
         </div>
       </div>
 
+      <div class="visible-lg">
+        <%= render 'doses/form' %>
+      </div>
+
+
     <% when action == 'Add' %>
 
       <h1> <%= action + " " + cocktail %> </h1>
+      <br>
+      <%= image_tag 'cocktail-glass-original.png' %>
 
     <% end %>
 
-  <div class="visible-lg">
-    <%= render 'doses/form' %>
-  </div>
 
 
   </div>
