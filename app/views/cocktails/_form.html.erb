@@ -3,7 +3,7 @@
   <% when action == "Edit" %>
 
     <% if @cocktail.photo? %>
-      <% picture_path = "http://res.cloudinary.com/dqonjhrsw/image/upload/" + @cocktail.photo.path %>
+      <% picture_path = "http://res.cloudinary.com/dkf3v0a5c/image/upload/" + @cocktail.photo.path %>
     <% else %>
       <% picture_path = @cocktail.picture %>
     <% end %>

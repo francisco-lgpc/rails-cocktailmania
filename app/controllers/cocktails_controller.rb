@@ -2,7 +2,7 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:edit, :show, :update]
 
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.where.not(picture: nil)
   end
 
   def show
@@ -18,6 +18,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.picture = "" if @cocktail.photo?
     if @cocktail.save
       redirect_to @cocktail, notice: 'cocktail was successfully created.'
     else
@@ -34,7 +35,7 @@ class CocktailsController < ApplicationController
   end
 
   def search
-    @cocktails = Cocktail.where(name: params[:query].capitalize)
+    @cocktails = Cocktail.where(name: params[:query].split.map(&:capitalize).join(' '))
     if @cocktails.empty?
       ingredients = Ingredient.where(name: params[:query].capitalize)
 

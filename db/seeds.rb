@@ -49,20 +49,8 @@ end
 
 Dose.all.each { |dose| dose.description = "100 ml"; dose.save! }
 
-=end
-
 Cocktail.destroy_all
 Ingredient.destroy_all
-
-
-
-def ing_key?(k, v)
-  k.index("strIngredient") && v != ""
-end
-
-def dose_key?(k, v)
-  k.index("strMeasure") && v != ""
-end
 
 # Generate Ingredients
 
@@ -77,14 +65,28 @@ ingredients_parsed["drinks"].uniq.each do |ing|
   ingredients << Ingredient.create(name: ing.values.first)
 end
 
+=end
+
+
 # Generate Cocktails and Doses
+ingredients = Ingredient.all
+
+def ing_key?(k, v)
+  k.index("strIngredient") && v != ""
+end
+
+def dose_key?(k, v)
+  k.index("strMeasure") && v != ""
+end
 
 RANDOM_COCKTAIL_URL = "http://www.thecocktaildb.com/api/json/v1/1/random.php"
+COCKTAIL_URL        = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
 
-100.times do
+11000.upto(18000) do |i|
 
-  cocktail_json = open(RANDOM_COCKTAIL_URL).read
+  cocktail_json = open(COCKTAIL_URL + i.to_s).read
   cocktail_parsed = JSON.parse(cocktail_json)
+  next if cocktail_parsed["drinks"].nil?
   cocktail_data = cocktail_parsed["drinks"].first
 
   next if Cocktail.find_by_name(cocktail_data["strDrink"])
